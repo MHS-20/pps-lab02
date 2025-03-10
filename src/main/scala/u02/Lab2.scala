@@ -105,5 +105,29 @@ object Lab2 extends App:
   println("Espressione: " + show(expr))
   println("Valore: " + evaluate(expr))
 
-  // TASK 10
+
+  // TASK 5
+  object Optionals:
+
+    enum Optional[A]:
+      case Maybe(value: A)
+      case Empty()
+
+    object Optional:
+
+      def isEmpty[A](optional: Optional[A]): Boolean = optional match
+        case Empty() => true
+        case _ => false
+
+      def orElse[A, B >: A](optional: Optional[A], default: B): B = optional match
+        case Maybe(value) => value
+        case Empty() => default
+
+      def map[A, B](optional: Optional[A], f: A => B): Optional[B] = optional match
+        case Empty() => Empty()
+        case Maybe(value) => Optional.Maybe(f(value))
+
+      def filter[A](optional: Optional[A], f: A => Boolean): Optional[A] = optional match
+        case Empty() => Empty()
+        case Maybe(value) => if f(value) then Maybe(value) else Empty()
 
