@@ -2,11 +2,21 @@ package u02
 
 object Lab2 extends App:
   println("Hello Scala")
+
+  // TASK 1
+  // svolto con Gabriele Basigli ed Eleonora Falconi, prima consegna
   println("")
-  println("===== TASK 2 ======")
+  println("===== TASK 1 ======")
+  def div ( x: Double , y: Double ): Double = x / y
+  def curriedDiv (x: Double ) (y: Double ): Double = x / y
+  println(div(10, 2))
+  println(curriedDiv(10))
+  println(curriedDiv(10)(2))
 
   // TASK 2
   // svolto con Gabriele Basigli ed Eleonora Falconi, prima consegna
+  println("")
+  println("===== TASK 2 ======")
   def positive(x: Int): String = x match
     case x if x >= 0 => "positive"
     case _ => "negative"
