@@ -1,6 +1,6 @@
 package u02
 
-object Hello extends App:
+object Lab2 extends App:
   println("Hello Scala")
 
   // POSITIVE
@@ -104,3 +104,6 @@ object Hello extends App:
   val expr = Add(Literal(3), Multiply(Literal(4), Literal(5)))
   println("Espressione: " + show(expr))
   println("Valore: " + evaluate(expr))
+
+  // TASK 10
+
