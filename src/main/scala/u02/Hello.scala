@@ -66,11 +66,10 @@ object Hello extends App:
   println(composeThree[Int, Int, String, String](_ + "world", _ + "hello ", _ * 5)(5))
 
 
-  // EXPONENTIAL
+  // POWER
   def power(base: Double, exp: Int): Double = exp match
     case 0 => 1
     case _ => base * power(base, exp - 1)
-
   println(power(2, 4))
 
   def powerTail(base: Double, exp: Int): Double =
@@ -82,5 +81,13 @@ object Hello extends App:
   println(powerTail(2, 4))
 
 
+  // REVERSE DIGIT
+  def reverseNumber(n: Int): Int =
+    @annotation.tailrec
+    def _reverse(n: Int, acc: Int): Int = n match
+      case 0 => acc
+      case _ => _reverse(n/10, acc*10 + n%10)
+    _reverse(n, 0)
+  println(reverseNumber(12345))
 
 
